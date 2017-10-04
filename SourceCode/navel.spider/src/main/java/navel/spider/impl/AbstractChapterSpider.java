@@ -19,7 +19,7 @@ import novel.spider.entitys.Chapter;
 
 public class AbstractChapterSpider implements IChapterSpider {
 	protected String crawl(String url) throws Exception{
-		try(CloseableHttpClient httpClient=HttpClientBuilder.create().build();
+		try(CloseableHttpClient httpClient=HttpClientBuilder.create().build();    //设置代理服务器
 			CloseableHttpResponse httpResponse= httpClient.execute(new HttpGet(url))){  //放进try里可以自动释放资源
 			String result=EntityUtils.toString(httpResponse.getEntity());   //返回抓取的结果
 			return result;
@@ -31,14 +31,14 @@ public class AbstractChapterSpider implements IChapterSpider {
 	public List<Chapter> getsChapter(String url) {
 		try {
 			String result=crawl(url);
-			Document doc=Jsoup.parse(result);
-			Elements as=doc.select("#list dd a");
+			Document doc=Jsoup.parse(result);    //解析HTML字符串
+			Elements as=doc.select("#list dd a");   //寻找该选择器的元素
 			List<Chapter> chapters=new ArrayList<>();
 			for(Element a:as){   //遍历拿到的标签
 				Chapter chapter=new Chapter();
 				chapter.setTitle(a.text());
 				chapter.setUrl("http://www.bxwx8.org"+a.attr("href"));
-				chapters.add(chapter);
+				chapters.add(chapter);    //将元素放进对象再存进数组中
 			}
 			return chapters;
 		} catch (Exception e) {

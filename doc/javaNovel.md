@@ -41,7 +41,9 @@
 
 - 检验jq选择器是否能获取到元素内容：  
 
-![](../img/p02.png)
+![](../img/p02.png)  
+
+``$("div").text(); 获取中间的文本，不包括html标签；``   
 
 ###    2.获取元素转化为json数据  
 
@@ -79,14 +81,14 @@ public interface IChapterSpider {
 	public List<Chapter> getsChapter(String url) {
 		try {
 			String result=crawl(url);
-			Document doc=Jsoup.parse(result);
-			Elements as=doc.select("#list dd a");
+			Document doc=Jsoup.parse(result);    //解析HTML字符串
+			Elements as=doc.select("#list dd a");   //寻找该选择器的元素
 			List<Chapter> chapters=new ArrayList<>();
 			for(Element a:as){   //遍历拿到的标签
 				Chapter chapter=new Chapter();
 				chapter.setTitle(a.text());
 				chapter.setUrl("http://www.bxwx8.org"+a.attr("href"));
-				chapters.add(chapter);
+				chapters.add(chapter);    //将元素放进对象再存进数组中
 			}
 			return chapters;
 		} catch (Exception e) {
@@ -97,7 +99,7 @@ public interface IChapterSpider {
 
 ```java
 	protected String crawl(String url) throws Exception{
-		try(CloseableHttpClient httpClient=HttpClientBuilder.create().build();
+		try(CloseableHttpClient httpClient=HttpClientBuilder.create().build();    //设置代理服务器
 			CloseableHttpResponse httpResponse= httpClient.execute(new HttpGet(url))){  //放进try里可以自动释放资源
 			String result=EntityUtils.toString(httpResponse.getEntity());   //返回抓取的结果
 			return result;
@@ -106,10 +108,6 @@ public interface IChapterSpider {
 		}
 	}
 ```
-
-代码解析：
-
-
 
 #### 5.编写Test方法    
 
@@ -126,7 +124,11 @@ public interface IChapterSpider {
 	}
 ```
 
-输出的对象由于toString会显示属性在控制台上面   
+输出的对象由于toString会显示属性在控制台上面    
+
+
+
+
 
 
 
