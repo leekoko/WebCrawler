@@ -1,0 +1,12 @@
+INDEX VERSION 1.127+D:\github_place\WebCrawler\SourceCode\.metadata\.plugins\org.eclipse.jdt.core
+1498219845.index
+3321493615.index
+4140034084.index
+1099513762.index
+2428800840.index
+840675982.index
+3792516032.index
+325788732.index
+717292575.index
+1792505270.index
+1668346350.index
