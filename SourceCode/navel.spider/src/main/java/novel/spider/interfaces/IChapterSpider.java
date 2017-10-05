@@ -1,4 +1,4 @@
-package navel.spider.interfaces;
+package novel.spider.interfaces;
 
 import java.util.List;
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sites>
+	<site>
+		<title>顶点小说</title>
+		<charset>GBK</charset>
+		<url>http://www.23wx.com</url>
+		<charset-list-selector>#at td a</charset-list-selector>
+	</site>
+	<site>
+		<title>笔趣阁</title>
+		<charset>utf-8</charset>
+		<url>http://www.biquge.tw/</url>
+		<charset-list-selector>#list dd a</charset-list-selector>
+	</site>
+</sites>
