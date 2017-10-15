@@ -24,5 +24,13 @@ RemoteSystemsTempFiles/
 
 Servers/
 
+/target/
+
+.classpath
+
+.project
+
+.settings
+
 
 

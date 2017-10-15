@@ -5,6 +5,8 @@
 - jq操作网页元素的jar包：jsoup   
 - http-client
 
+可以自动下载jar包  
+
 依赖包查找的网站：http://mvnrepository.com/
 
 ```
